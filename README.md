@@ -47,6 +47,17 @@ Compose has commands for managing the whole lifecycle of your application:
 Installation and documentation
 ------------------------------
 
+To build (for aarch64):
+docker build -t docker-compose:aarch64 -f Dockerfile.aarch64 .
+docker run --rm --entrypoint="script/build/linux-entrypoint" -v $(pwd)/dist:/code/dist -v $(pwd)/.git:/code/.git "docker-compose:aarch64"
+
+sudo cp dist/docker-compose-Linux-aarch64 /usr/local/bin/docker-compose
+sudo chown root:root /usr/local/bin/docker-compose
+sudo chmod 0755 /usr/local/bin/docker-compose
+
+
+
+
 - Full documentation is available on [Docker's website](https://docs.docker.com/compose/).
 - If you have any questions, you can talk in real-time with other developers in the #docker-compose IRC channel on Freenode. [Click here to join using IRCCloud.](https://www.irccloud.com/invite?hostname=irc.freenode.net&channel=%23docker-compose)
 - Code repository for Compose is on [GitHub](https://github.com/docker/compose)
